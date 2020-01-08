@@ -8,3 +8,10 @@ Cara Penggunaan
 - Create Key <code>php artisan key:generate<code>
 - Menggunakan Auth Bawaan Laravel <code>composer require laravel/ui; php artisan ui bootstrap --auth</code>
 - Migrate Database <code>php artisan migrate --seed</code>
+
+Feature Status 
+- Api Login : working <code>api/login</code>
+- Api Logout : working <code>api/logout</code>
+- Topup : working <code>api/topup</code>
+- Debit/Pengurangan saldo : working
+
