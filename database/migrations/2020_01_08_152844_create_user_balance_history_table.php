@@ -16,9 +16,10 @@ class CreateUserBalanceHistoryTable extends Migration
         Schema::create('user_balance_history', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_balance_id');
+            $table->integer('trx');
             $table->integer('balance_before');
             $table->integer('balance_after');
-            $table->integer('activity');
+            $table->string('activity');
             $table->enum('type',['debit','credit']);
             $table->string('ip');
             $table->string('location');

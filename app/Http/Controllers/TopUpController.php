@@ -38,9 +38,11 @@ class TopUpController extends Controller
      */
     public function store(Request $request)
     {
-        $userbalance = UserBalance::find(auth('api')->user()->id);
+        $userbalance = UserBalance::where( 'user_id', '=', auth('api')->user()->id )->first();
 
-        if($userbalance) {
+        //dd($userbalance);
+
+        if(!empty($userbalance)) {
             $id = $userbalance->id;
         } else {
             $userbalance = new UserBalance;
@@ -53,20 +55,28 @@ class TopUpController extends Controller
 
         $trx = new UserBalanceHistory;
         $trx->user_balance_id = $id;
-        $trx->balance_before = $userbalance ? $userbalance->balance : 0 ;
-        $trx->balance_after = $request->trx ;
-        $trx->activity = $request->activity ;
+
         $trx->type = $request->type ;
+        $trx->trx = $request->trx ;
+
+        $trx->balance_before = $userbalance->balance ;
+
+        if($trx->type == 1) {
+            $trx->balance_after = $trx->balance_before - $request->trx ;
+        } elseif($trx->type == 2) {
+            $trx->balance_after = $trx->balance_before + $request->trx ;
+        }
+        $trx->activity = $request->activity ;
         $trx->ip = $request->ip ;
         $trx->location = $request->location ;
         $trx->user_agent = $request->user_agent ;
         $trx->author = $request->author ;
         $trx->save();
 
-        if($trx->type == 0) {
-            $userbalance->balance += $request->trx ;
-        } else {
+        if($trx->type == 1) {
             $userbalance->balance -= $request->trx ;
+        } elseif($trx->type == 2) {
+            $userbalance->balance += $request->trx ;
         }
 
         $userbalance->save();
