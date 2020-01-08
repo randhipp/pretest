@@ -19,5 +19,11 @@ Route::middleware('auth:api')->post('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:api')->group(function () {
+
+    Route::resource('/topup', 'TopUpController');
+
+});
+
 Route::post('/login', 'ApiLoginController@login')->name('apilogin');
 Route::post('/logout', 'ApiLoginController@logout')->name('apilogout');
