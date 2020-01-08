@@ -16,8 +16,9 @@ Feature Status
 - Debit/Pengurangan saldo : working
 - Transfer antar User : working <code>api/transfer</code>
 
-Topup Screenshoot
-![](screenshot/topup.png)
+Topup & Transaksi Screenshoot
+![](screenshot/topup-fix.png)
+![](screenshot/transaksi.png)
 
 Transfer Screenshoot
 ![](screenshot/transfer.png)
