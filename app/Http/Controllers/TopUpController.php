@@ -42,7 +42,7 @@ class TopUpController extends Controller
 
         //dd($userbalance);
 
-        if(!empty($userbalance)) {
+        if(isset($userbalance)) {
             $id = $userbalance->id;
         } else {
             $userbalance = new UserBalance;
