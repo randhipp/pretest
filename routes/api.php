@@ -23,6 +23,7 @@ Route::middleware('auth:api')->group(function () {
     
     Route::resource('/topup', 'TopUpController');
     Route::resource('/transfer', 'TransferController');
+    Route::resource('/payment', 'PaymentController');
 });
 
 Route::post('/login', 'ApiLoginController@login')->name('apilogin');

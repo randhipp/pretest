@@ -12,7 +12,7 @@ Feature Status
 - Api Login : working <code>api/login</code>
 - Api Logout : working <code>api/logout</code>
 - Topup : working <code>api/topup</code>
-- Debit/Pengurangan saldo : working
+- Payment/Pengurangan saldo : working <code>api/payment</code>
 - Transfer antar User : working <code>api/transfer</code>
 - Cek User Balance dengan history : Working <code>api/balance</code>
 
@@ -21,10 +21,10 @@ Feature Status
 #### Topup
 ![](screenshot/topup-fix.png)
 
-#### Transaksi
+#### Payment
 ![](screenshot/transaksi.png)
 
-#### Transfer
+#### Transfer Balance to another user
 ![](screenshot/transfer.png)
 
 #### Cek Saldo
