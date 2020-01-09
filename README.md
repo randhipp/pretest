@@ -6,7 +6,6 @@ Cara Penggunaan
 - Jalankan composer install
 - Sesuaikan database host, db_name, username, dan password di .env
 - Create Key <code>php artisan key:generate<code>
-- Menggunakan Auth Bawaan Laravel <code>composer require laravel/ui; php artisan ui bootstrap --auth</code>
 - Migrate Database <code>php artisan migrate --seed</code>
 
 Feature Status 
@@ -15,10 +14,18 @@ Feature Status
 - Topup : working <code>api/topup</code>
 - Debit/Pengurangan saldo : working
 - Transfer antar User : working <code>api/transfer</code>
+- Cek User Balance dengan history : Working <code>api/balance</code>
 
-Topup & Transaksi Screenshoot
+### Screenshoot
+
+#### Topup
 ![](screenshot/topup-fix.png)
+
+#### Transaksi
 ![](screenshot/transaksi.png)
 
-Transfer Screenshoot
+#### Transfer
 ![](screenshot/transfer.png)
+
+#### Cek Saldo
+![](screenshot/balance.png)
