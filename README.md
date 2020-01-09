@@ -5,7 +5,7 @@ Cara Penggunaan
 - Clone repo ini <code>git clone https://gitlab.com/randhi.pp/pretest.git</code>
 - Jalankan composer install
 - Sesuaikan database host, db_name, username, dan password di .env
-- Create Key <code>php artisan key:generate<code>
+- Create Key <code>php artisan key:generate</code>
 - Migrate Database <code>php artisan migrate --seed</code>
 
 Feature Status 
