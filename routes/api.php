@@ -2,8 +2,6 @@
 
 use Illuminate\Http\Request;
 
-use App\Http\Controllers\ApiLoginController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,7 +18,9 @@ Route::middleware('auth:api')->post('/user', function (Request $request) {
 });
 
 Route::middleware('auth:api')->group(function () {
-
+    
+    Route::post('/balance', 'BalanceController@balance');
+    
     Route::resource('/topup', 'TopUpController');
     Route::resource('/transfer', 'TransferController');
 });
