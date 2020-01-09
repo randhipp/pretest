@@ -18,6 +18,16 @@ class ApiLoginController extends Controller
 
         if(isset($user) && Hash::check( $request->password, $user->password) )
         {
+            //if logged in, return you're logged in
+            if ($user->logged_in == 1) {
+                return json_encode([ 'status' => 'already logged in',
+                                'email' => $request->username,
+                                'login_status' => $user->logged_in,
+                                'api_token' => $user->api_token,
+                                ]);
+            }
+            
+            
             //add api_token to user with successfull login
             $user->api_token = Str::random(80);
             $user->logged_in = 1;
@@ -27,6 +37,10 @@ class ApiLoginController extends Controller
                                 'email' => $request->username,
                                 'login_status' => $user->logged_in,
                                 'api_token' => $user->api_token,
+                                ]);
+        } else {
+            return json_encode([ 'status' => 'error',
+                                'message' => 'invalid credential'
                                 ]);
         }
 
@@ -42,7 +56,7 @@ class ApiLoginController extends Controller
             $user->logged_in = 0;
             $user->save();
 
-            return json_encode([ 'status' => 'ok',
+            return json_encode([ 'status' => 'Logged Out Successfully',
                                 'email' => $request->username,
                                 'login_status' => $user->logged_in,
                                 'api_token' => $user->api_token,
